@@ -35,6 +35,8 @@ Arguments:
         | D_HAT[0][0] | D_HAT[0][1] | ... | D_HAT[0][K-1] | D_HAT[1][0] | ... | D_HAT[M-1][K-1] |
         -----------------------------------------------------------------------------------------
     K : number of columns (features) in reduced matrix (to be computed)
+    retention : percentage of inpdormation to be retained by PCA
+        retention = 90 means 90% of information should be retained
 */
 void SVD_and_PCA (
     int M, 
@@ -44,6 +46,7 @@ void SVD_and_PCA (
     double** SIGMA, 
     double** V_T, 
     double** D_HAT, 
-    int *K);
+    int *K, 
+    int retention);
 
 #endif

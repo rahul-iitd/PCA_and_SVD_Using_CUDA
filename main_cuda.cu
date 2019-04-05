@@ -63,7 +63,7 @@ int main(int argc, char const *argv[])
 	// 		TODO -- You must implement this function
 	// 	*****************************************************
 	// */
-	SVD_and_PCA(M, N, D, &U, &SIGMA, &V_T, &D_HAT, &K);
+	SVD_and_PCA(M, N, D, &U, &SIGMA, &V_T, &D_HAT, &K, retention);
 
 	cudaEventRecord(stop);
 	cudaEventElapsedTime(&computation_time, start, stop);
