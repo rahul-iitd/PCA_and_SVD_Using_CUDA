@@ -1,7 +1,7 @@
 //
 // Created by rahul on 5/4/19.
 //
-#include "../lab3_cuda.h"
+#include "lab3_cuda.h"
 #include <iostream>
 #include <cmath>
 #include <malloc.h>
