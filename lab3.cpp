@@ -6,6 +6,8 @@
 #include <cmath>
 #include <malloc.h>
 #include <fstream>
+#include <stdlib.h>
+
 
 using namespace std;
 
@@ -377,4 +379,3 @@ void SVD_and_PCA (int M,
 //    print_matrix(D_hat, M, count);
 
 }
-

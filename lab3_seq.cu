@@ -71,7 +71,7 @@ __global__ void gpu_matrix_mult(double *a,double *b, double *c, int m, int n, in
 }
 
 double** cuda_mat_mul(double** A, int Am, int An,
-                 double** B, int Bm, int Bn){
+                      double** B, int Bm, int Bn){
     double *d_a, *d_b, *d_c;
     cudaMalloc((void **) &d_a, sizeof(double)*Am*An);
     cudaMalloc((void **) &d_b, sizeof(double)*Bm*Bn);
@@ -351,7 +351,7 @@ void SVD_and_PCA (int M,
     }
     
     D_T = mat_transpose(D_new, M, N);
-    prod = cuda_mat_mul(D_T, N, M, D_new, M, N);
+    prod = mat_mul(D_T, N, M, D_new, M, N);
     cout<<"Prod is"<<endl;
     print_matrix(prod,N,N);
     Jacobi(prod, N, &eigenvalues, &eigenvectors);
@@ -404,8 +404,8 @@ void SVD_and_PCA (int M,
     }
     
     // Computing U = D_new_T V Sigma_inv
-    intermediate=cuda_mat_mul(D_new,M,N,V_new,N,N);
-    U_new = cuda_mat_mul(intermediate,M,N,sigma_inv,N,M);
+    intermediate=mat_mul(D_new,M,N,V_new,N,N);
+    U_new = mat_mul(intermediate,M,N,sigma_inv,N,M);
     
     for (int i = 0; i <N ; ++i) {
         SIGMA[0][i]=sigma[i][i];
@@ -452,7 +452,7 @@ void SVD_and_PCA (int M,
         }
     }
     
-    D_hat=cuda_mat_mul(D_new,M,N,U_After_PCA,N,count);
+    D_hat=mat_mul(D_new,M,N,U_After_PCA,N,count);
     
     D_HAT[0] = (double*) malloc(sizeof(double) * M*count);
     

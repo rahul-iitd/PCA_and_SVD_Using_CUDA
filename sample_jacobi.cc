@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include <malloc.h>
+#include <stdlib.h>
 #include <fstream>
 
 using namespace std;
